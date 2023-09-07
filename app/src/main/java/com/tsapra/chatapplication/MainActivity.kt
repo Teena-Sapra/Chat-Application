@@ -10,6 +10,7 @@ import android.view.MenuItem
 import android.view.View
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -31,7 +32,7 @@ import com.tsapra.chatapplication.ui.theme.ChatApplicationTheme
 import kotlinx.android.synthetic.main.activity_main.linearLayout
 import kotlinx.android.synthetic.main.activity_main.userRv
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var userList: ArrayList<user>
     private lateinit var adapter: userAdapter
@@ -73,7 +74,6 @@ class MainActivity : ComponentActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return super.onOptionsItemSelected(item)
         if(item.itemId==R.id.logout){
             mAuth.signOut()
             val intent= Intent(this@MainActivity, LoginActivity::class.java)
